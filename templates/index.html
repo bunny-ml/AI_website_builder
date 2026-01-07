@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Document Assistant</title>
+    
+  <!-- Markdown parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- DOMPurify sanitizer -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+  
+  <!-- PrismJS CSS for styling code blocks -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+  
+  <!-- PrismJS core and language(s) -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Settings</h2>
+            <div class="input-group">
+                <label for="userId">User ID</label>
+                <input type="text" id="userId" placeholder="Enter your ID..." value="user123">
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-header">
+                <h3>Chat with your AI Website Builder</h3>
+            </header>
+            
+            <div class="chat-window" id="chatWindow">
+                <div class="msg bot-msg">Hello! I am your own AI website Builder.</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="userMessage" placeholder="Type your question..." onkeypress="handleKeyPress(event)">
+                <button id="sendBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
